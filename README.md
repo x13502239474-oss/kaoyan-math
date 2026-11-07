@@ -168,10 +168,16 @@ cd .. && node tests/ui-smoke.mjs
 ```
 HTTP 测试需先启动服务器：`python server.py --port 8099 --no-browser`。
 
+**GitHub Pages 线上部署验证**（https://x13502239474-oss.github.io/kaoyan-math/）：
+
+- 线上 `index.html` 与本地 SHA-256 完全一致；30 个页面引用、33 个 Service Worker 缓存资源全部返回 HTTP 200；`manifest.webmanifest` 的 MIME 为 `application/manifest+json`。
+- 下载线上实际发布的 23 个脚本、用 jsdom 按原顺序执行：首页及课程 / 公式 / 练习 / 复习 / 错题 / 考试 / 统计 / 设置 8 个页面均正常渲染，**13 / 13 项通过、零 JS 运行时错误**。
+
 **测试中发现并已修复的真实缺陷**（不是外观问题）：
 1. 填空题数值容差把 `1/4` 用 `parseFloat` 当成 `1`，导致错误答案被判对 → 改为只对纯数字串启用容差。
 2. 批量导入 `answers` 类型的对象格式被当成非法输入拒绝 → 允许 `{type, items:{...}}`。
 3. 错题本把「全部章节 = all」当成真实筛选值比对，默认列表空白 → 修正 `wrongList` 的 `all` 语义。
+4. 部署到 GitHub Pages 后 Jekyll 默认忽略下划线开头的 `js/views/_common.js`（公共渲染层），线上会白屏 → 根目录添加 `.nojekyll`，线上复验 30 + 33 个资源全部 200、8 页渲染正常。
 
 **手动验收建议**：首次使用时，按顺序走一遍「课程 c01 标记完成 → 写笔记 → 练 5 题（故意错 1 题）→ 错题本重做 → 复习计划标记掌握 → 考一场 3 题 → 设置页导出备份」，即可确认全链路。
 
