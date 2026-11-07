@@ -1,0 +1,83 @@
+/* ===== Reset & 基础布局 ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font); font-size: var(--fs-base); line-height: var(--lh);
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  min-height: 100vh; min-height: 100dvh;
+}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+a { color: var(--brand); text-decoration: none; }
+img, svg { max-width: 100%; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+::selection { background: var(--brand-weak); color: var(--brand-ink); }
+
+#app { min-height: 100vh; min-height: 100dvh; }
+
+/* 桌面：固定左侧栏 */
+#sidebar {
+  position: fixed; inset: 0 auto 0 0; width: var(--sidebar-w);
+  background: var(--surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; z-index: var(--z-top);
+  padding: var(--sp-5) var(--sp-3);
+}
+#main-wrap { margin-left: var(--sidebar-w); min-height: 100vh; min-height: 100dvh; }
+#topbar {
+  position: sticky; top: 0; z-index: var(--z-top); height: var(--topbar-h);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: 0 var(--sp-6);
+}
+#view { max-width: var(--content-max); margin: 0 auto; padding: var(--sp-5) var(--sp-6) var(--sp-8); }
+#tabbar { display: none; }
+
+/* 手机：隐藏侧栏，底部 Tab */
+@media (max-width: 899px) {
+  #sidebar { display: none; }
+  #main-wrap { margin-left: 0; }
+  #topbar { padding: 0 var(--sp-4); height: 54px; }
+  #view { padding: var(--sp-4) var(--sp-4) calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 28px); }
+  #tabbar {
+    display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-tab);
+    height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border);
+  }
+}
+@media (max-width: 360px) { :root { --fs-base: 14px; } }
+
+/* 通用小工具 */
+.row { display: flex; align-items: center; gap: var(--sp-3); }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); }
+.wrap { flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; min-width: 0; }
+.mt-2{margin-top:var(--sp-2)} .mt-3{margin-top:var(--sp-3)} .mt-4{margin-top:var(--sp-4)}
+.mt-5{margin-top:var(--sp-5)} .mt-6{margin-top:var(--sp-6)}
+.mb-2{margin-bottom:var(--sp-2)} .mb-3{margin-bottom:var(--sp-3)} .mb-4{margin-bottom:var(--sp-4)}
+.muted { color: var(--text-2); }
+.dim { color: var(--text-3); }
+.small { font-size: var(--fs-sm); }
+.tiny { font-size: var(--fs-xs); }
+.center { text-align: center; }
+.bold { font-weight: 700; }
+.nowrap { white-space: nowrap; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hidden { display: none !important; }
+.divider { height: 1px; background: var(--border); margin: var(--sp-4) 0; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.stack > * + * { margin-top: var(--sp-3); }
+.grid { display: grid; gap: var(--sp-3); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 720px) { .grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); } .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 400px) { .grid-2.tight { grid-template-columns: 1fr; } }

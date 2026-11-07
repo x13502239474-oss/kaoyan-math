@@ -1,0 +1,86 @@
+/* ===========================================================
+   设计令牌 Design Tokens  ——  四个自学网站共用约定
+   详见 STYLE_GUIDE.md。改动这里等于改动全站视觉。
+   =========================================================== */
+:root {
+  /* 品牌色：沉稳靛蓝，四站统一；各科可只改 --brand-hue 微调 */
+  --brand:            #2D5BD7;
+  --brand-hover:      #244AB4;
+  --brand-active:     #1E3D99;
+  --brand-weak:       #EAF0FF;
+  --brand-border:     #C9D8FF;
+  --brand-ink:        #1B3F9E;
+
+  /* 语义色（中国习惯：涨/正确用红? 这里非金融场景，正确统一用绿） */
+  --success:          #17845A;
+  --success-weak:     #E6F5EE;
+  --warning:          #B8760C;
+  --warning-weak:     #FFF4E0;
+  --danger:           #CE4438;
+  --danger-weak:      #FDECEA;
+  --accent:           #E07B32;
+  --accent-weak:      #FFF1E4;
+
+  /* 中性色 */
+  --bg:               #F4F6FA;
+  --surface:          #FFFFFF;
+  --surface-2:        #F8FAFD;
+  --surface-3:        #EEF2F8;
+  --border:           #E1E7F0;
+  --border-strong:    #C9D3E2;
+  --text:             #1A2432;
+  --text-2:           #55637A;
+  --text-3:           #8A97AB;
+  --text-inverse:     #FFFFFF;
+
+  /* 字体 */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-2xl: 28px;
+  --lh: 1.72;
+
+  /* 间距 */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 40px;
+
+  /* 圆角 & 阴影 */
+  --r-sm: 8px; --r: 12px; --r-lg: 16px; --r-xl: 22px; --r-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(20,32,56,.05);
+  --shadow:    0 1px 2px rgba(20,32,56,.05), 0 4px 14px rgba(20,32,56,.06);
+  --shadow-lg: 0 8px 32px rgba(20,32,56,.14);
+
+  /* 尺寸 */
+  --sidebar-w: 232px;
+  --topbar-h: 60px;
+  --tabbar-h: 62px;
+  --content-max: 1080px;
+  --tap: 44px;              /* 最小触摸目标 */
+
+  --z-tab: 40; --z-top: 30; --z-modal: 100; --z-toast: 120;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* 深色模式：跟随系统，仅做可读性适配，不改变品牌语义 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12161F; --surface: #1B2130; --surface-2: #222A3B; --surface-3: #2A3346;
+    --border: #303B50; --border-strong: #41506A;
+    --text: #EAF0FA; --text-2: #AEBBD0; --text-3: #7E8CA3;
+    --brand: #6C93FF; --brand-hover: #86A5FF; --brand-active: #A9BFFF;
+    --brand-weak: #22315A; --brand-border: #3C528C; --brand-ink: #B9CDFF;
+    --success: #4DC491; --success-weak: #17372B;
+    --warning: #E8AE4F; --warning-weak: #3B2E17;
+    --danger: #F0786C;  --danger-weak: #3D2224;
+    --accent: #F3A268;  --accent-weak: #3A281C;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.24);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.5);
+  }
+}

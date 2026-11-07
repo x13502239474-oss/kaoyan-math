@@ -1,0 +1,20 @@
+{
+  "_说明": "键名必须与题目 id 一致。四段式：answer 答案 → idea 解题思路 → steps 逐步演示 → trap 易错提醒。blank 题可加 accepted 可接受写法数组；essay 题用 keywords 判分要点组（每组同义词，命中 70% 以上判对）。",
+  "type": "answers",
+  "items": {
+    "my_q01": {
+      "answer": "B",
+      "idea": "一句话说明解题思路",
+      "steps": ["第一步：写出已知条件", "第二步：代入公式", "第三步：得到结论"],
+      "trap": "最容易算错或看漏的地方",
+      "accepted": []
+    },
+    "my_q02": {
+      "answer": "42",
+      "accepted": ["42", "四十二"],
+      "idea": "一句话说明解题思路",
+      "steps": ["计算过程"],
+      "trap": "注意单位与格式"
+    }
+  }
+}

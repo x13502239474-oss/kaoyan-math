@@ -1,0 +1,35 @@
+{
+  "_说明": "题目只放题干与选项；答案与解析请另放 answers 模板，保证两者分离。sourceType 建议填 imported，source 写你自己的出处。qtype 可选 single/multi/judge/blank/essay。chapter 见 taxonomy：ch1~ch6；kp 见各章知识点 id（k11~k65）。公式用 $...$ 包裹，反斜杠要写成两个。",
+  "type": "questions",
+  "items": [
+    {
+      "id": "my_q01",
+      "sourceType": "imported",
+      "source": "我的资料 P12",
+      "chapter": "ch1",
+      "kp": "k11",
+      "qtype": "single",
+      "difficulty": 2,
+      "est": 60,
+      "stem": "这里写题干，可以含公式 $\\frac{1}{2}+\\frac{1}{3}$",
+      "options": [
+        { "key": "A", "text": "选项 A" },
+        { "key": "B", "text": "选项 B" },
+        { "key": "C", "text": "选项 C" },
+        { "key": "D", "text": "选项 D" },
+        { "key": "E", "text": "选项 E" }
+      ],
+      "tags": ["自编"]
+    },
+    {
+      "id": "my_q02",
+      "sourceType": "imported",
+      "chapter": "ch2",
+      "kp": "k25",
+      "qtype": "blank",
+      "difficulty": 1,
+      "stem": "填空题题干",
+      "tags": []
+    }
+  ]
+}

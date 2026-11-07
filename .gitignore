@@ -1,0 +1,22 @@
+# 本机测试依赖（jsdom，约 21 MB；删掉不影响网站运行）
+.devtools/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 探测与临时文件
+.probe/
+*.log
+*.tmp
+*.swp
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# 本机导出的学习数据备份（含个人进度，不入库）
+backups/
+exports/
+*.backup.json
+kaoyan-math-backup-*.json

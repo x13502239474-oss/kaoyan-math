@@ -1,0 +1,24 @@
+{
+  "_说明": "tex 用受限 LaTeX：\\frac{}{}、^{}、_{}、\\sqrt{}、\\times、\\le、\\ge、\\pi、\\sum 等。不支持 \\begin{cases} 这类环境，请用普通写法表达。",
+  "type": "formulas",
+  "items": [
+    {
+      "id": "my_f01",
+      "chapter": "ch1",
+      "kp": "k11",
+      "name": "（示例）公式名称",
+      "tex": "a^2+b^2=c^2",
+      "note": "适用条件、符号含义与使用提醒",
+      "tags": ["自定义"]
+    },
+    {
+      "id": "my_f02",
+      "chapter": "ch2",
+      "kp": "k25",
+      "name": "（示例）等差数列求和",
+      "tex": "S_n=\\frac{n(a_1+a_n)}{2}",
+      "note": "n 是项数",
+      "tags": []
+    }
+  ]
+}
