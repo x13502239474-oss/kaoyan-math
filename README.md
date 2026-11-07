@@ -41,6 +41,7 @@ python server.py --port 9000  # 换端口
 1. **数据互不相通**：学习记录存在「当前浏览器 + 当前域名」的 localStorage 里。本地 `file://`、`127.0.0.1`、局域网 IP 和这个在线地址是四份独立数据，不会自动同步；跨设备迁移请用「设置 → 导出 JSON」再在目标设备导入。
 2. **公开但私密**：网站链接任何人可打开，但网站没有账号、没有后端、不上传数据，别人看到的只是一个空白的全新学习台，看不到你的任何记录。
 3. **源码可自建**：仓库是公开的，也可 `git clone` 后按方式 A/B/C 在本机跑，或 fork 到自己账号下重新发布 Pages。
+4. **`.nojekyll` 不要删**：GitHub Pages 默认用 Jekyll 构建，会跳过所有下划线开头的文件；本项目 `js/views/_common.js` 是公共渲染层，一旦被跳过线上就会白屏。根目录的 `.nojekyll` 用于关闭 Jekyll、按原样发布静态文件。其他三个科目网站若也部署到 Pages，同样需要这个文件。
 
 ---
 
@@ -53,6 +54,7 @@ math/
 ├─ server.py                  Python 标准库静态服务器，无第三方依赖
 ├─ manifest.webmanifest       PWA 清单
 ├─ sw.js                      Service Worker（网络优先 + 离线回退）
+├─ .nojekyll                  GitHub Pages 必需：禁用 Jekyll，勿删（见方式 D 说明）
 ├─ assets/                   icon.svg / icon-192.png / icon-512.png
 ├─ css/
 │   ├─ tokens.css             设计令牌（四站统一改这里）
